@@ -1,0 +1,14 @@
+CREATE TABLE IF NOT EXISTS users
+(
+    id uuid NOT NULL PRIMARY KEY DEFAULT gen_random_uuid(),
+    email VARCHAR(50) UNIQUE NOT NULL,
+    password VARCHAR(100) NOT NULL,
+    user_type VARCHAR(15) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS tokens (
+    id SERIAL PRIMARY KEY,
+    user_id uuid UNIQUE REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE,
+    token VARCHAR(500) UNIQUE NOT NULL,
+    created_at TIMESTAMPTZ DEFAULT NOW()
+);

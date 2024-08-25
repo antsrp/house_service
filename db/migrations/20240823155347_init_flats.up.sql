@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS flats
+(
+    id SERIAL NOT NULL PRIMARY KEY,
+    house_id INTEGER NOT NULL REFERENCES houses(id),
+    price INTEGER NOT NULL,
+    rooms SMALLINT NOT NULL,
+    status VARCHAR(20) NOT NULL
+);
