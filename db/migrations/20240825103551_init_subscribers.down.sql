@@ -1,0 +1,2 @@
+DROP INDEX IF EXISTS idx_sub;
+DROP TABLE IF EXISTS subscribers;
